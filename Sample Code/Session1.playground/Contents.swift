@@ -84,6 +84,7 @@ class SelfieStick : Stick {
 }
 
 let mySelfieStick = SelfieStick(startingLength: 20, startingWidth: 5)
+mySelfieStick.length
 mySelfieStick.breakStick()
 
 
