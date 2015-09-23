@@ -11,38 +11,48 @@ import UIKit
 class ViewController: UIViewController {
   
   var myName = "Brad"
+  var counter = 0
+  var numbers = [0,1,2,4]
 
-  @IBOutlet weak var mySwitch: UISwitch!
+  @IBOutlet weak var myLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = UIColor.blueColor()
-    println(view.frame.size)
-    println("view did load")
+    //view.backgroundColor = UIColor.blueColor()
+    print(view.frame.size)
+    print("view did load")
+    numbers = [Int]()
+    numbers.append(0)
+    numbers.append(1)
+    
+    
+
+  
     //myName = "Bradley"
     // Do any additional setup after loading the view, typically from a nib.
   }
   
+
+  @IBAction func buttonPressed(sender: AnyObject) {
+    counter++
+    numbers.append(counter)
+    let firstNumber = numbers[0]
+    //same as counter = counter + 1
+    
+    if counter > 10 {
+      counter = 0
+    }
+    
+    myLabel.text = "\(counter)"
+  }
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    println("view will appear")
+    print("view will appear")
   }
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    println("view did appear")
-    view.backgroundColor = UIColor.greenColor()
+    print("view did appear")
+    //view.backgroundColor = UIColor.greenColor()
   }
-
-  @IBAction func changeColor(sender: AnyObject) {
-    view.backgroundColor = UIColor.orangeColor()
-    mySwitch.on = !mySwitch.on
-  }
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    //myName = "Bob"
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
 

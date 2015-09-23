@@ -13,6 +13,7 @@
 		A2305F7B1BABAEB100AB9315 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2305F7A1BABAEB100AB9315 /* Images.xcassets */; };
 		A2305F7E1BABAEB100AB9315 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2305F7C1BABAEB100AB9315 /* LaunchScreen.xib */; };
 		A2305F8A1BABAEB100AB9315 /* ClassRosterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2305F891BABAEB100AB9315 /* ClassRosterTests.swift */; };
+		A2BD241F1BB247AE0037475F /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD241E1BB247AE0037475F /* YellowViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		A2305F831BABAEB100AB9315 /* ClassRosterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassRosterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2305F881BABAEB100AB9315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2305F891BABAEB100AB9315 /* ClassRosterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRosterTests.swift; sourceTree = "<group>"; };
+		A2BD241E1BB247AE0037475F /* YellowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				A2305F751BABAEB100AB9315 /* ViewController.swift */,
+				A2BD241E1BB247AE0037475F /* YellowViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -180,6 +183,8 @@
 		A2305F661BABAEB100AB9315 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Code Fellows";
 				TargetAttributes = {
@@ -237,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2305F761BABAEB100AB9315 /* ViewController.swift in Sources */,
+				A2BD241F1BB247AE0037475F /* YellowViewController.swift in Sources */,
 				A2305F741BABAEB100AB9315 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
