@@ -22,8 +22,10 @@ class ViewController: UIViewController {
     print(view.frame.size)
     print("view did load")
     numbers = [Int]()
-    numbers.append(0)
-    numbers.append(1)
+    numbers.append(0) //index 0
+    numbers.append(1) //index 1
+    numbers.append(1000) //index 2
+    
     
     
 
@@ -35,8 +37,7 @@ class ViewController: UIViewController {
 
   @IBAction func buttonPressed(sender: AnyObject) {
     counter++
-    numbers.append(counter)
-    let firstNumber = numbers[0]
+    //numbers.append(counter)
     //same as counter = counter + 1
     
     if counter > 10 {

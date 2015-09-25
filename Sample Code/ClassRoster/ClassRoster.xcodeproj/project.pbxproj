@@ -13,6 +13,7 @@
 		A2305F7B1BABAEB100AB9315 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2305F7A1BABAEB100AB9315 /* Images.xcassets */; };
 		A2305F7E1BABAEB100AB9315 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2305F7C1BABAEB100AB9315 /* LaunchScreen.xib */; };
 		A2305F8A1BABAEB100AB9315 /* ClassRosterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2305F891BABAEB100AB9315 /* ClassRosterTests.swift */; };
+		A2B5C5A21BB4EB4C00AB0167 /* RosterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B5C5A11BB4EB4C00AB0167 /* RosterTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A2BD241F1BB247AE0037475F /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD241E1BB247AE0037475F /* YellowViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		A2305F831BABAEB100AB9315 /* ClassRosterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassRosterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2305F881BABAEB100AB9315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2305F891BABAEB100AB9315 /* ClassRosterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRosterTests.swift; sourceTree = "<group>"; };
+		A2B5C5A11BB4EB4C00AB0167 /* RosterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTableViewController.swift; sourceTree = "<group>"; };
 		A2BD241E1BB247AE0037475F /* YellowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				A2305F751BABAEB100AB9315 /* ViewController.swift */,
+				A2B5C5A11BB4EB4C00AB0167 /* RosterTableViewController.swift */,
 				A2BD241E1BB247AE0037475F /* YellowViewController.swift */,
 			);
 			name = Controllers;
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2B5C5A21BB4EB4C00AB0167 /* RosterTableViewController.swift in Sources */,
 				A2305F761BABAEB100AB9315 /* ViewController.swift in Sources */,
 				A2BD241F1BB247AE0037475F /* YellowViewController.swift in Sources */,
 				A2305F741BABAEB100AB9315 /* AppDelegate.swift in Sources */,
