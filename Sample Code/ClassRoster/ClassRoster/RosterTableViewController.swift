@@ -19,6 +19,24 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
     }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    print("segue fired!")
+    if segue.identifier == "ShowPersonDetail" {
+      let destinationViewController = segue.destinationViewController as! PersonDetailViewController
+      
+      let selectedIndexPath = tableView.indexPathForSelectedRow
+      let selectedRow = selectedIndexPath!.row
+      let selectedName = names[selectedRow]
+      
+      destinationViewController.selectedName  = selectedName
+      destinationViewController.view.backgroundColor = UIColor.greenColor()
+ 
+    } else if segue.identifier == "MyOtherSegue" {
+      //this code would customize based on going to a different view controller
+    }
+    
+  }
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
     return names.count
