@@ -16,20 +16,27 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
       tableView.dataSource = self
+      
+      let me = Person(fName: "Brad", lName: "Johnson")
+      
+      if let building = me.building {
+        print(building)
+      }
         // Do any additional setup after loading the view.
     }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     print("segue fired!")
     if segue.identifier == "ShowPersonDetail" {
-      let destinationViewController = segue.destinationViewController as! PersonDetailViewController
+      if let destinationViewController = segue.destinationViewController as? PersonDetailViewController {
       
-      let selectedIndexPath = tableView.indexPathForSelectedRow
-      let selectedRow = selectedIndexPath!.row
+      if let selectedIndexPath = tableView.indexPathForSelectedRow {
+      let selectedRow = selectedIndexPath.row
       let selectedName = names[selectedRow]
       
-      destinationViewController.selectedName  = selectedName
-      destinationViewController.view.backgroundColor = UIColor.greenColor()
+      destinationViewController.selectedName = selectedName
+        }
+      }
  
     } else if segue.identifier == "MyOtherSegue" {
       //this code would customize based on going to a different view controller
@@ -53,10 +60,10 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
     let name = names[indexPath.row]
     cell.textLabel?.text = name
     
-    cell.backgroundColor = UIColor.whiteColor()
-    if indexPath.row == 0 {
-      cell.backgroundColor = UIColor.blueColor()
-    }
+//    cell.backgroundColor = UIColor.whiteColor()
+//    if indexPath.row == 0 {
+//      cell.backgroundColor = UIColor.blueColor()
+//    }
     
     //part 3 - return the cell to the table view, because it needs it to show it
     
