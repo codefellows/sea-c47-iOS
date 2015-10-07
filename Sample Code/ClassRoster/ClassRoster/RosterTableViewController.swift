@@ -11,6 +11,7 @@ import UIKit
 class RosterTableViewController: UIViewController, UITableViewDataSource {
   
   let names = ["Kam","Brad"]
+  var people = [Person]()
 
   @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -18,26 +19,47 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
       tableView.dataSource = self
       
       let me = Person(fName: "Brad", lName: "Johnson")
+      let kam = Person(fName: "Kam", lName: "Chancellor")
+      people.append(me)
+      people.append(kam)
+      //me.building = "some building"
+      //let myBuilding = me.building!
+     // print(myBuilding)
       
       if let building = me.building {
         print(building)
+        building
+      } else {
+        print("no building")
       }
         // Do any additional setup after loading the view.
     }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    tableView.reloadData()
+    
+  }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     print("segue fired!")
     if segue.identifier == "ShowPersonDetail" {
+      
+      let myDestinationViewController = segue.destinationViewController as! PersonDetailViewController
+      
       if let destinationViewController = segue.destinationViewController as? PersonDetailViewController {
       
       if let selectedIndexPath = tableView.indexPathForSelectedRow {
       let selectedRow = selectedIndexPath.row
-      let selectedName = names[selectedRow]
+      //let selectedName = names[selectedRow]
+        let chosenPerson = people[selectedRow]
+        
+        destinationViewController.selectedPerson = chosenPerson
       
-      destinationViewController.selectedName = selectedName
+//      destinationViewController.selectedName = selectedName
         }
       }
- 
     } else if segue.identifier == "MyOtherSegue" {
       //this code would customize based on going to a different view controller
     }
@@ -46,7 +68,7 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    return names.count
+    return people.count
     
   }
   
@@ -57,8 +79,11 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
     
     //part 2 - configure the cell
     //cell.textLabel?.text = "\(indexPath.row)"
-    let name = names[indexPath.row]
-    cell.textLabel?.text = name
+//    let name = names[indexPath.row]
+//    cell.textLabel?.text = name
+    let person = people[indexPath.row]
+    cell.textLabel?.text = person.firstName + " " + person.lastName
+    
     
 //    cell.backgroundColor = UIColor.whiteColor()
 //    if indexPath.row == 0 {

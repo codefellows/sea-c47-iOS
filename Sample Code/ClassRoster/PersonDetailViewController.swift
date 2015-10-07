@@ -8,18 +8,47 @@
 
 import UIKit
 
-class PersonDetailViewController: UIViewController {
+class PersonDetailViewController: UIViewController, UITextFieldDelegate {
   
+  @IBOutlet weak var lastNameTextField: UITextField!
+  @IBOutlet weak var firstNameTextField: UITextField!
+  
+  @IBOutlet weak var imageView: UIImageView!
   var selectedName = "None"
-
-  @IBOutlet weak var nameLabel: UILabel!
+  var selectedPerson : Person!
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      firstNameTextField.delegate = self
+      lastNameTextField.delegate = self
+      
+      firstNameTextField.text = selectedPerson.firstName
+      lastNameTextField.text = selectedPerson.lastName
+      
+      let russImage = UIImage(named: "russ.jpg")
+      imageView.image = russImage
 
-      nameLabel.text = selectedName
+      //nameLabel.text = selectedName
       
         // Do any additional setup after loading the view.
     }
+  
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    
+    if let firstNameText = firstNameTextField.text {
+      selectedPerson.firstName = firstNameText
+    }
+    
+    if let lastNameText = lastNameTextField.text {
+      selectedPerson.lastName = lastNameText
+    }
+    
+//    selectedPerson.firstName = firstNameTextField.text!
+    
+    
+    textField.resignFirstResponder()
+    return true
+  }
 
 }
