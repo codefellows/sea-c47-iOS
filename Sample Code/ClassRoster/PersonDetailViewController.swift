@@ -44,8 +44,7 @@ class PersonDetailViewController: UIViewController, UITextFieldDelegate {
       selectedPerson.lastName = lastNameText
     }
     
-//    selectedPerson.firstName = firstNameTextField.text!
-    
+    //selectedPerson.firstName = firstNameTextField.text!
     
     textField.resignFirstResponder()
     return true

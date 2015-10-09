@@ -16,22 +16,35 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
   @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-      tableView.dataSource = self
       
-      let me = Person(fName: "Brad", lName: "Johnson")
-      let kam = Person(fName: "Kam", lName: "Chancellor")
-      people.append(me)
-      people.append(kam)
-      //me.building = "some building"
-      //let myBuilding = me.building!
-     // print(myBuilding)
-      
-      if let building = me.building {
-        print(building)
-        building
+      if let peopleFromArchive = self.loadFromArchive() {
+        people = peopleFromArchive
       } else {
-        print("no building")
+        
+        let me = Person(fName: "Brad", lName: "Johnson")
+        let kam = Person(fName: "Kam", lName: "Chancellor")
+        people.append(me)
+        people.append(kam)
+        
+        for person in people {
+          person.image = UIImage(named: "placeholder")
+        }
+        
+        saveToArchive()
       }
+      
+      
+      tableView.dataSource = self
+    
+      
+//      for var i = 0; i < people.count; i++ {
+//        print("loop \(i)")
+//        let person = people[i]
+//      }
+      
+   
+    
+      
         // Do any additional setup after loading the view.
     }
   
@@ -39,6 +52,7 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
     super.viewWillAppear(animated)
     
     tableView.reloadData()
+    saveToArchive()
     
   }
   
@@ -75,24 +89,35 @@ class RosterTableViewController: UIViewController, UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
     //part 1 - dequeue the cell
-    let cell = tableView.dequeueReusableCellWithIdentifier("RosterCell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier("RosterCell", forIndexPath: indexPath) as! PersonTableViewCell
     
     //part 2 - configure the cell
-    //cell.textLabel?.text = "\(indexPath.row)"
-//    let name = names[indexPath.row]
-//    cell.textLabel?.text = name
     let person = people[indexPath.row]
-    cell.textLabel?.text = person.firstName + " " + person.lastName
     
-    
-//    cell.backgroundColor = UIColor.whiteColor()
-//    if indexPath.row == 0 {
-//      cell.backgroundColor = UIColor.blueColor()
-//    }
+    cell.firstNameLabel.text = person.firstName
+    cell.lastNameLabel.text = person.lastName
+    cell.personImageView.image = person.image
     
     //part 3 - return the cell to the table view, because it needs it to show it
     
     return cell
+  }
+  
+  func saveToArchive() {
+    if let documentPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last {
+      
+          NSKeyedArchiver.archiveRootObject(people, toFile: documentPath + "/archive")
+    }
+  }
+  
+  func loadFromArchive() -> [Person]? {
+    if let documentPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).last {
+      
+      if let people = NSKeyedUnarchiver.unarchiveObjectWithFile(documentPath + "/archive") as? [Person] {
+        return people
+      }
+    }
+    return nil
   }
   
 

@@ -38,20 +38,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h3v-c9-myb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h3v-c9-myb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RosterCell" id="TgO-RH-8Qe">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RosterCell" rowHeight="75" id="TgO-RH-8Qe" customClass="PersonTableViewCell" customModule="ClassRoster" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TgO-RH-8Qe" id="Tze-rj-I0p">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MzY-FU-YYZ">
+                                                    <rect key="frame" x="8" y="8" width="58" height="58.5"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58.5" id="IuD-7a-i5o"/>
+                                                        <constraint firstAttribute="width" constant="58" id="x8x-uc-nYb"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c29-1R-OCX">
+                                                    <rect key="frame" x="74" y="8" width="42" height="20.5"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvL-59-flM">
+                                                    <rect key="frame" x="74" y="36.5" width="42" height="20.5"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstItem="MzY-FU-YYZ" firstAttribute="leading" secondItem="Tze-rj-I0p" secondAttribute="leadingMargin" id="0Cs-b8-fcm"/>
+                                                <constraint firstItem="c29-1R-OCX" firstAttribute="top" secondItem="MzY-FU-YYZ" secondAttribute="top" id="4dc-xL-Jck"/>
+                                                <constraint firstItem="c29-1R-OCX" firstAttribute="leading" secondItem="MzY-FU-YYZ" secondAttribute="trailing" constant="8" id="GYQ-EQ-VPo"/>
+                                                <constraint firstItem="FvL-59-flM" firstAttribute="top" secondItem="c29-1R-OCX" secondAttribute="bottom" constant="8" id="HMh-rB-LdB"/>
+                                                <constraint firstItem="FvL-59-flM" firstAttribute="leading" secondItem="c29-1R-OCX" secondAttribute="leading" id="Xgi-mk-ed7"/>
+                                                <constraint firstItem="MzY-FU-YYZ" firstAttribute="centerY" secondItem="Tze-rj-I0p" secondAttribute="centerY" id="u3T-H5-zPx"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
+                                            <outlet property="firstNameLabel" destination="c29-1R-OCX" id="rjQ-7a-0GN"/>
+                                            <outlet property="lastNameLabel" destination="FvL-59-flM" id="G1e-Yy-KGw"/>
+                                            <outlet property="personImageView" destination="MzY-FU-YYZ" id="rWB-34-JpW"/>
                                             <segue destination="zWG-dJ-pk5" kind="show" identifier="ShowPersonDetail" id="Rrb-va-VAa"/>
                                         </connections>
                                     </tableViewCell>
@@ -100,7 +135,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kam-e1391184067151.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xTo-7h-caR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kam-e1391184067151.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xTo-7h-caR">
                                 <rect key="frame" x="180" y="148" width="240" height="200"/>
                                 <animations/>
                                 <constraints>
